@@ -12,7 +12,6 @@ Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{module}
 Source:		http://www.cpan.org/modules/by-module/Set/%{module}-%{version}.tar.bz2
 BuildRequires:	perl-devel
-Buildroot:	%_tmppath/%{name}-%{release}
 
 %description
 This module implements a set of objects, that is, an unordered collection of
