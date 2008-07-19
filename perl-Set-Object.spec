@@ -1,7 +1,7 @@
 %define module	Set-Object
 %define name	perl-%{module}
-%define version 1.22
-%define release %mkrel 2
+%define version 1.23
+%define release %mkrel 1
 
 Name: 		%{name}
 Version: 	%{version}
@@ -20,6 +20,9 @@ objects without duplication.
 
 %prep
 %setup -q -n %{module}-%{version}
+# should not have been included
+# http://rt.cpan.org/Ticket/Display.html?id=37799
+rm -f t/misc/threads.t
 
 %build
 %__perl Makefile.PL INSTALLDIRS=vendor
