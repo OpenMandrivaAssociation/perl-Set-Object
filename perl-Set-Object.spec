@@ -1,25 +1,25 @@
-%define module	Set-Object
-%define name	perl-%{module}
-%define version 1.27
-%define release %mkrel 1
+%define upstream_name	 Set-Object
+%define upstream_version 1.27
 
-Name: 		%{name}
-Version: 	%{version}
-Release:	%{release} 
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Set of objects and strings in Perl
 License:	Artistic/GPL
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source:		http://www.cpan.org/modules/by-module/Set/%{module}-%{version}.tar.bz2
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Set/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildRequires:	perl-devel
-Buildroot:	%_tmppath/%{name}-%{release}
+Buildroot:	%_tmppath/%{name}-%{version}-%{release}
 
 %description
 This module implements a set of objects, that is, an unordered collection of
 objects without duplication.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 # should not have been included
 # http://rt.cpan.org/Ticket/Display.html?id=37799
 rm -f t/misc/threads.t
@@ -35,14 +35,12 @@ rm -f t/misc/threads.t
 rm -rf %buildroot
 %makeinstall_std
 
+%clean
+rm -rf %buildroot
+
 %files
 %defattr(-,root,root)
 %doc README
 %{perl_vendorarch}/Set
 %{perl_vendorarch}/auto/Set
 %{_mandir}/*/*
-
-%clean
-rm -rf %buildroot
-
-
