@@ -1,15 +1,15 @@
 %define upstream_name	 Set-Object
-%define upstream_version 1.27
+%define upstream_version 1.28
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 
 Summary:	Set of objects and strings in Perl
 License:	Artistic/GPL
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Set/%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:	http://www.cpan.org/modules/by-module/Set/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 Buildroot:	%_tmppath/%{name}-%{version}-%{release}
