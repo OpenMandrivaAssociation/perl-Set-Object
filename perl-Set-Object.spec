@@ -1,15 +1,15 @@
 %define upstream_name	 Set-Object
-%define upstream_version 1.28
+%define upstream_version 1.31
 
 Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:	2
+Version:    %perl_convert_version 1.31
+Release:	1
 
 Summary:	Set of objects and strings in Perl
 License:	Artistic/GPL
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Set/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Set/Set-Object-1.31.tar.gz
 
 BuildRequires:	perl-devel
 Buildroot:	%_tmppath/%{name}-%{version}-%{release}
@@ -112,4 +112,5 @@ rm -rf %buildroot
 
 * Thu Jan 12 2006 Rafael Garcia-Suarez <rgarciasuarez@mandriva.com> 1.14-1mdk
 - Initial MDV RPM
+
 
