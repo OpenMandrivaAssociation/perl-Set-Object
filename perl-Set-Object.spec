@@ -1,18 +1,17 @@
 %define upstream_name	 Set-Object
-%define upstream_version 1.31
+%define upstream_version 1.34
 
 Name:       perl-%{upstream_name}
-Version:    %perl_convert_version 1.31
+Version:    %perl_convert_version %{upstream_version}
 Release:	1
 
 Summary:	Set of objects and strings in Perl
 License:	Artistic/GPL
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Set/Set-Object-1.31.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Set/Set-Object-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
-Buildroot:	%_tmppath/%{name}-%{version}-%{release}
 
 %description
 This module implements a set of objects, that is, an unordered collection of
@@ -32,14 +31,11 @@ rm -f t/misc/threads.t
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
 %clean
-rm -rf %buildroot
 
 %files
-%defattr(-,root,root)
 %doc README
 %{perl_vendorarch}/Set
 %{perl_vendorarch}/auto/Set
@@ -112,5 +108,6 @@ rm -rf %buildroot
 
 * Thu Jan 12 2006 Rafael Garcia-Suarez <rgarciasuarez@mandriva.com> 1.14-1mdk
 - Initial MDV RPM
+
 
 
